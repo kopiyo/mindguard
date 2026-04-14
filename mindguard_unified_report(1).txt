@@ -1,0 +1,11 @@
+MindGuard Unified Risk Report
+========================================
+Unified Risk Score: 50.0%  (Moderate Risk)
+Platforms analysed: File Upload, Facebook, Twitter/X, Video
+
+File Upload: 92.6% — Critical Risk (45 posts, 22 high-risk)
+Facebook: 3.1% — Low Risk (5 posts, 0 high-risk)
+Twitter/X: 99.5% — Critical Risk (20 posts, 18 high-risk)
+Video: 4.8% — Low Risk (1 posts, 0 high-risk)
+
+Timestamp: 2026-04-09 20:40:20
