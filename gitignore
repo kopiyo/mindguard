@@ -1,0 +1,22 @@
+# Model files — too large for GitHub, hosted on HuggingFace
+mindguard_best_weights.pt
+mindguard_model_local/
+mindguard_tokenizer/
+mindguard_model_config.json
+mindguard_tokenizer.zip
+mindguard_onnx/
+
+# Data files — do not commit
+*.csv
+*.txt
+training_history.json
+mindguard_unified_report*.txt
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.env
+
+# Local saves
+save_model_local.py
