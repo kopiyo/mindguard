@@ -1,0 +1,11 @@
+streamlit
+torch
+transformers
+plotly
+Pillow
+pytesseract
+pandas
+numpy
+praw
+faster-whisper
+yt-dlp
