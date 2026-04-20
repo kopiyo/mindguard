@@ -1,5 +1,5 @@
 """
-MindGuard v3 - Suicidal Ideation Detector
+MindGuard - Suicidal Ideation Detector
 """
 
 import streamlit as st
@@ -25,9 +25,11 @@ def image_data_uri(path: Path) -> str:
 
 MINDGUARD_LOGO_URI = image_data_uri(MINDGUARD_LOGO_PATH)
 
+icon = Image.open(MINDGUARD_LOGO_PATH)
+
 st.set_page_config(
     page_title="MindGuard - Suicidal Ideation Detector",
-    page_icon="🧠",
+    page_icon=icon,
     layout="wide",
     initial_sidebar_state="collapsed"
 )
@@ -603,7 +605,6 @@ def render_terms_dialog():
     st.markdown("""
     <p class="section-label">Required before workspace access</p>
     <h2>Practitioner Use and Responsibility Agreement</h2>
-    <p><strong>Professional Use Agreement</strong></p>
     <p>This application is a clinical decision-support tool intended for use by trained professionals, including school psychologists, licensed counselors, or designated mental health staff.</p>
     <p>By using this system, you agree to the following:</p>
     <div class="terms-grid">
@@ -1318,7 +1319,7 @@ with tab_text:
                 else:
                     st.session_state.last_result = {"ok":False,"no_image":True}
                 st.rerun()
-        st.markdown('<div class="col-footer">MindGuard v3 — Mental-RoBERTa — Mental Health Research</div>', unsafe_allow_html=True)
+        st.markdown('<div class="col-footer">MindGuard — Mental-RoBERTa — Mental Health Research</div>', unsafe_allow_html=True)
 
     with colB:
         st.markdown("""
@@ -1864,7 +1865,7 @@ with tab_resources:
         st.markdown('<div style="margin-top:0.7rem;padding:0.5rem 0.65rem;background:rgba(239,68,68,0.08);border-radius:8px;border:1px solid rgba(239,68,68,0.25)"><p style="color:#fca5a5;font-size:0.76rem;margin:0">If someone is in immediate danger, call emergency services immediately. MindGuard is a research tool — it does not replace clinical assessment.</p></div>', unsafe_allow_html=True)
     with rc2:
         st.markdown('<h2>About MindGuard</h2>', unsafe_allow_html=True)
-        st.markdown('<div style="font-size:0.76rem;line-height:1.85;color:rgba(255,255,255,0.78)"><p class="section-label">Model Architecture</p><p>Mental-RoBERTa (mental/mental-roberta-base) — domain-specific transformer pre-trained on mental health text. Fine-tuned on 12,656 annotated Reddit posts. Accuracy: 92.5% | ROC-AUC: 0.9813</p><p class="section-label">Risk Tiers</p><p>Low &lt;35% &nbsp;&middot;&nbsp; Moderate 35-55% &nbsp;&middot;&nbsp; High 55-75% &nbsp;&middot;&nbsp; Critical &gt;75%</p><p class="section-label">Ethics</p><p>Ethics approval: TUM-SERC MSC/028/2025A<br>NACOSTI Application #535883<br>Consent-first. No data stored between sessions. For research use only.</p></div>', unsafe_allow_html=True)
+        st.markdown('''<div style="font-size:0.76rem;line-height:1.85;color:rgba(255,255,255,0.78)"><p class="section-label">What is MindGuard?</p><p>MindGuard is a consent-first, human-in-the-loop clinical decision-support system designed to help trained mental health professionals identify early signals of suicidal ideation in consented digital text. It is not a diagnostic tool and does not replace clinical judgment — it is built to surface meaningful signals earlier than traditional screening methods allow, giving counsellors and school psychologists a structured, evidence-based starting point for follow-up.</p><p class="section-label">Model Architecture</p><p>MindGuard is powered by Mental-RoBERTa (mental/mental-roberta-base), a transformer pre-trained on millions of mental health domain posts from communities including r/SuicideWatch, r/depression, and r/anxiety. Unlike general-purpose sentiment tools, Mental-RoBERTa understands the nuanced language of psychological distress. The model was fine-tuned on 12,656 annotated posts using a stratified 75/10/15 train-validation-test split, achieving a ROC-AUC of 0.9813 and an accuracy of 92.5%, outperforming both a general RoBERTa baseline and a custom Bi-LSTM model on every evaluation metric.</p><p class="section-label">Risk Tiers</p><p>Low &lt;35% &nbsp;&middot;&nbsp; Moderate 35–55% &nbsp;&middot;&nbsp; High 55–75% &nbsp;&middot;&nbsp; Critical &gt;75%</p><p class="section-label">How It Works</p><p>Every output produced by MindGuard is reviewed by a qualified professional before any action is taken. No automated alerts are sent, no autonomous outreach occurs, and no data is stored between sessions. The system operates across nine digital platforms and is designed to integrate into existing counselling workflows rather than replace them.</p></div>''', unsafe_allow_html=True)
 
 with tab_team:
     st.markdown("""
