@@ -13,6 +13,7 @@ import plotly.express as px
 from PIL import Image
 import pytesseract
 import pandas as pd
+from huggingface_hub import snapshot_download, hf_hub_download
 
 #APP_DIR = Path(__file__).resolve().parent
 #MINDGUARD_LOGO_PATH = APP_DIR / "assets" / "mindguard_logo_highres.png"
