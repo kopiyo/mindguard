@@ -650,7 +650,7 @@ def load_model_and_tokenizer():
         with open("mindguard_model_config.json") as f:
             config = json.load(f)
         device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-        tokenizer = AutoTokenizer.from_pretrained("mindguard_tokenizer")
+        tokenizer = AutoTokenizer.from_pretrained(st.secrets["HF_REPO_ID"],token=st.secrets["HF_TOKEN"],subfolder="mindguard_tokenizer")
         local_path = "mindguard_model_local"
         load_from  = local_path if os.path.exists(local_path) else config["model_name"]
         model = AutoModelForSequenceClassification.from_pretrained(
