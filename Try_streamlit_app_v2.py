@@ -23,7 +23,7 @@ import pandas as pd
     #except Exception:
      #   return ""
 
-#MINDGUARD_LOGO_URI = image_data_uri(MINDGUARD_LOGO_PATH)
+MINDGUARD_LOGO_URI = ""
 
 #icon = Image.open(MINDGUARD_LOGO_PATH)
 
@@ -563,7 +563,7 @@ def render_sign_in():
             <div>
                 <div class="auth-brand">
                     <div class="auth-brand-logo">
-                        <img src="{MINDGUARD_LOGO_URI}" alt="MindGuard logo">
+                        <div style="font-size:22px;font-weight:700;color:#0D9488;letter-spacing:-0.5px;">MindGuard AI</div>
                     </div>
                 </div>
                 <div class="auth-kicker">SECURE WORKSPACE</div>
