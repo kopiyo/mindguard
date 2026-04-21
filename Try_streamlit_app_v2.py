@@ -14,7 +14,7 @@ import pytesseract
 import pandas as pd
 
 #APP_DIR = Path(__file__).resolve().parent
-MINDGUARD_LOGO_PATH = APP_DIR / "assets" / "mindguard_logo_highres.png"
+#MINDGUARD_LOGO_PATH = APP_DIR / "assets" / "mindguard_logo_highres.png"
 
 #def image_data_uri(path: Path) -> str:
    # try:
