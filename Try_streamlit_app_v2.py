@@ -649,25 +649,35 @@ def load_model_and_tokenizer():
     #   mindguard_tokenizer/       — folder with tokenizer.json and tokenizer_config.json
     #   mindguard_model_config.json — model configuration
     try:
-        with open("mindguard_model_config.json") as f:
-            config = json.load(f)
-        device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-        tokenizer = AutoTokenizer.from_pretrained(st.secrets["HF_REPO_ID"],token=st.secrets["HF_TOKEN"],subfolder="mindguard_tokenizer")
-        local_path = "mindguard_model_local"
-        load_from  = local_path if os.path.exists(local_path) else config["model_name"]
-        model = AutoModelForSequenceClassification.from_pretrained(
-            load_from,
-            num_labels=2,
-            ignore_mismatched_sizes=True,)
-        weights_path = hf_hub_download(repo_id=st.secrets["HF_REPO_ID"],filename="mindguard_best_weights.pt",token=st.secrets["HF_TOKEN"])
+    with open("mindguard_model_config.json") as f:
+        config = json.load(f)
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    tokenizer = AutoTokenizer.from_pretrained(
+        st.secrets["HF_REPO_ID"],
+        token=st.secrets["HF_TOKEN"],
+        subfolder="mindguard_tokenizer"
+    )
+    local_path = "mindguard_model_local"
+    load_from = local_path if os.path.exists(local_path) else config["model_name"]
+    model = AutoModelForSequenceClassification.from_pretrained(
+        load_from,
+        num_labels=2,
+        ignore_mismatched_sizes=True,
+    )
+    weights_path = hf_hub_download(
+        repo_id=st.secrets["HF_REPO_ID"],
+        filename="mindguard_best_weights.pt",
+        token=st.secrets["HF_TOKEN"]
+    )
+    state_dict = torch.load(weights_path, map_location=device)
+    model.load_state_dict(state_dict)
+    model = model.to(device)
+    model.eval()
+    return model, tokenizer, config, device
 
-        model.load_state_dict(state_dict)
-        model = model.to(device)
-        model.eval()
-        return model, tokenizer, config, device
-    except Exception as e:
-        st.error(f"Could not load Mental-RoBERTa model: {e}")
-        st.stop()
+except Exception as e:
+    st.error(f"Could not load Mental-RoBERTa model: {e}")
+    st.stop()
 
 model, tokenizer, model_config, device = load_model_and_tokenizer()
 
