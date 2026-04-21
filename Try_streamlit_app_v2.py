@@ -13,23 +13,23 @@ from PIL import Image
 import pytesseract
 import pandas as pd
 
-APP_DIR = Path(__file__).resolve().parent
+#APP_DIR = Path(__file__).resolve().parent
 MINDGUARD_LOGO_PATH = APP_DIR / "assets" / "mindguard_logo_highres.png"
 
-def image_data_uri(path: Path) -> str:
-    try:
-        encoded = base64.b64encode(path.read_bytes()).decode("ascii")
-        return f"data:image/png;base64,{encoded}"
-    except Exception:
-        return ""
+#def image_data_uri(path: Path) -> str:
+   # try:
+   #     encoded = base64.b64encode(path.read_bytes()).decode("ascii")
+      #  return f"data:image/png;base64,{encoded}"
+    #except Exception:
+     #   return ""
 
-MINDGUARD_LOGO_URI = image_data_uri(MINDGUARD_LOGO_PATH)
+#MINDGUARD_LOGO_URI = image_data_uri(MINDGUARD_LOGO_PATH)
 
-icon = Image.open(MINDGUARD_LOGO_PATH)
+#icon = Image.open(MINDGUARD_LOGO_PATH)
 
 st.set_page_config(
     page_title="MindGuard - Suicidal Ideation Detector",
-    page_icon=icon,
+    page_icon="🧠",
     layout="wide",
     initial_sidebar_state="collapsed"
 )
