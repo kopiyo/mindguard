@@ -1,0 +1,7 @@
+{
+  "model_type": "mental_roberta",
+  "model_name": "mental/mental-roberta-base",
+  "max_length": 256,
+  "test_accuracy": 0.925,
+  "test_auc": 0.9813
+}
