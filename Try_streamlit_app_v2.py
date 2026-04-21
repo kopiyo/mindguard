@@ -641,14 +641,14 @@ if not st.session_state.terms_accepted:
     render_terms_dialog()
     st.stop()
 
-@st.cache_resource
-def load_model_and_tokenizer():
+#@st.cache_resource
+#def load_model_and_tokenizer():
     # Load Mental-RoBERTa — the best performing model (ROC-AUC 0.9813, Accuracy 92.5%)
     # Files needed in the same folder as this script:
     #   mindguard_best_weights.pt  — trained model weights
     #   mindguard_tokenizer/       — folder with tokenizer.json and tokenizer_config.json
     #   mindguard_model_config.json — model configuration
-    @st.cache_resource
+@st.cache_resource
 def load_model_and_tokenizer():
     from huggingface_hub import hf_hub_download
     try:
