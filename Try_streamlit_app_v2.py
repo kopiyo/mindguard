@@ -659,7 +659,7 @@ def load_model_and_tokenizer():
             num_labels=2,
             ignore_mismatched_sizes=True,)
         weights_path = hf_hub_download(repo_id=st.secrets["HF_REPO_ID"],filename="mindguard_best_weights.pt",token=st.secrets["HF_TOKEN"])
-state_dict = torch.load(weights_path, map_location=device)
+
         model.load_state_dict(state_dict)
         model = model.to(device)
         model.eval()
