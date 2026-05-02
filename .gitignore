@@ -42,5 +42,9 @@ checkpoints/
 
 # IDE
 .cursor/
+
+# Internal dev docs — not for public repo
+CLAUDE.md
+MINDGUARD_DEV_GUIDE.md
 *.swp
 *.swo
