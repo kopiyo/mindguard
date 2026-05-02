@@ -12,3 +12,7 @@ pandas>=2.0.0
 praw>=7.7.0
 faster-whisper>=0.10.0
 yt-dlp>=2024.1.0
+streamlit-google-auth>=1.1.0
+streamlit-authenticator>=0.3.3
+PyYAML>=6.0
+python-dotenv>=1.0.0
