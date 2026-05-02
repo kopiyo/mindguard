@@ -44,7 +44,3 @@ checkpoints/
 .cursor/
 *.swp
 *.swo
-
-.env.example
-CLAUDE.md
-MINDGUARD_DEV_GUIDE.md
