@@ -20,3 +20,8 @@ __pycache__/
 
 # Local saves
 save_model_local.py
+
+#Adds 
+streamlit
+upload_to_hf.py
+mindguard_best_weights.pt
